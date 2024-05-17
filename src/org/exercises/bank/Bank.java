@@ -1,5 +1,6 @@
 package org.exercises.bank;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class Bank {
@@ -29,12 +30,12 @@ public class Bank {
             switch (scelta) {
                 case 1:
                     System.out.print("Inserisci la somma da versare: ");
-                    double sommaDaVersare = scanner.nextDouble();
+                    BigDecimal sommaDaVersare = (scanner.nextBigDecimal());
                     conto.versa(sommaDaVersare);
                     break;
                 case 2:
                     System.out.print("Inserisci la somma da prelevare: ");
-                    double sommaDaPrelevare = scanner.nextDouble();
+                    BigDecimal sommaDaPrelevare = scanner.nextBigDecimal();
                     conto.preleva(sommaDaPrelevare);
                     break;
                 case 3:
