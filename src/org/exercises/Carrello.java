@@ -38,12 +38,12 @@ public class Carrello {
         Carrello carrello = new Carrello(maxSize);
 
         boolean continueAdding = true;
-        while (continueAdding) {
-            System.out.println("Inserisci il tipo di prodotto (1: Smarphone, 2: Televisore, 3: Cuffie, 4: Termina): ");
+        while (continueAdding && carrello.numProducts < maxSize) {
+            System.out.println("Inserisci il tipo di prodotto (1: Smarphone, 2: Televisore, 3: Cuffie, 0: Termina): ");
             int type = scanner.nextInt();
             scanner.nextLine();
 
-            if (type == 0) {
+            if (type == 0  ) {
                 continueAdding = false;
                 break;
             }
@@ -85,6 +85,7 @@ public class Carrello {
                     break;
                 default:
                     System.out.println("Tipo di prodotto non valido.");
+                    break;
             }
         }
         System.out.println("\nProdotti nel carrello:");
