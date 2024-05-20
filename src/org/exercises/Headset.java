@@ -26,6 +26,15 @@ import java.math.BigDecimal;
      }
 
      @Override
+     public BigDecimal getPrezzoScontato() {
+         if (!isWireless) {
+             return getPrezzoBase().multiply(new BigDecimal("0.93"));
+         } else {
+             return super.getPrezzoScontato();
+         }
+     }
+
+     @Override
      public String toString() {
          return super.toString() + ", Colore: " + color + ", Wireless: " + (isWireless ? "Sì" : "No");
      }

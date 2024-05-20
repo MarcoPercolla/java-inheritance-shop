@@ -30,6 +30,15 @@ class Television extends Product{
     }
 
     @Override
+    public BigDecimal getPrezzoScontato() {
+        if (!isSmart) {
+            return getPrezzoBase().multiply(new BigDecimal("0.90"));
+        } else {
+            return super.getPrezzoScontato();
+        }
+    }
+
+    @Override
     public String toString() {
         return super.toString() + ", Dimensioni: " + dimensions + " pollici, Smart: " + (isSmart ? "Sì" : "No");
     }

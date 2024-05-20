@@ -73,6 +73,10 @@ public class Product {
         return price.add(price.multiply(iva));
     }
 
+    public BigDecimal getPrezzoScontato() {
+        return price.multiply(new BigDecimal("0.98"));
+    }
+
 
     public String getNomeEsteso() {
         return getCodice() + "-" + name;

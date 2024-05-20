@@ -19,6 +19,18 @@ public class Carrello {
         }
     }
 
+    public BigDecimal calcolaTotale(boolean hasCartaFedelta) {
+        BigDecimal totale = BigDecimal.ZERO;
+        for (Product prodotto : products) {
+            if (hasCartaFedelta) {
+                totale = totale.add(prodotto.getPrezzoScontato());
+            } else {
+                totale = totale.add(prodotto.getPrezzoBase());
+            }
+        }
+        return totale;
+    }
+
     @Override
     public String toString() {
         String result = "";
@@ -88,8 +100,15 @@ public class Carrello {
                     break;
             }
         }
+
+        System.out.print("Possiedi una carta fedeltà (true/false)? ");
+        boolean hasCartaFedelta = scanner.nextBoolean();
+
         System.out.println("\nProdotti nel carrello:");
         System.out.println(carrello.toString());
+
+        BigDecimal totale = carrello.calcolaTotale(hasCartaFedelta);
+        System.out.println("Totale del carrello: " + totale + "€");
 
         scanner.close();
 

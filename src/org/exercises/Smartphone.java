@@ -29,6 +29,15 @@ class Smartphone extends Product {
     }
 
     @Override
+    public BigDecimal getPrezzoScontato() {
+        if (memory < 32) {
+            return getPrezzoBase().multiply(new BigDecimal("0.95"));
+        } else {
+            return super.getPrezzoScontato();
+        }
+    }
+
+    @Override
     public String toString() {
         return super.toString() + ", IMEI: " + imei + ", Memoria: " + memory + "GB";
     }
