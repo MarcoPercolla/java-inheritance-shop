@@ -1,9 +1,11 @@
 package org.exercises;
 
+import java.math.BigDecimal;
+
 public class Main {
     public static void main(String[] args) {
 
-        Product prodotto = new Product("Laptop", "Un laptop potente e leggero", 1000.00, 22.0);
+        Product prodotto = new Product("Laptop", "Un laptop potente e leggero", new BigDecimal(1000), new BigDecimal(22));
 
 
         System.out.println("Codice prodotto: " + prodotto.getCodice());
@@ -16,8 +18,8 @@ public class Main {
 
         prodotto.setNome("Laptop ricondizionato");
         prodotto.setDescrizione("Un laptop potente di seconda mano");
-        prodotto.setPrezzo(500.00);
-        prodotto.setIva(23.0);
+        prodotto.setPrezzo(new BigDecimal(500));
+        prodotto.setIva(new BigDecimal(23));
 
 
         System.out.println();

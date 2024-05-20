@@ -1,15 +1,16 @@
 package org.exercises;
 import java.util.Random;
+import java.math.BigDecimal;
 
 public class Product {
     private int code;
     private String name;
     private String description;
-    private double price;
-    private double iva;
+    private BigDecimal price;
+    private BigDecimal iva;
 
 
-    public Product(String nome, String descrizione, double prezzo, double iva) {
+    public Product(String nome, String descrizione, BigDecimal prezzo, BigDecimal iva) {
         this.code = generateRandomCode();
         this.name = nome;
         this.description = descrizione;
@@ -48,31 +49,37 @@ public class Product {
 
 
 
-    public void setPrezzo(double prezzo) {
+    public void setPrezzo(BigDecimal prezzo)  {
         this.price = prezzo;
     }
 
 
-    public double getIva() {
+    public BigDecimal getIva() {
         return iva;
     }
 
-    public void setIva(double iva) {
+    public void setIva(BigDecimal iva) {
         this.iva = iva;
     }
 
 
-    public double getPrezzoBase() {
+
+    public BigDecimal getPrezzoBase() {
         return price;
     }
 
 
-    public double getPrezzoConIva() {
-        return price + (price * iva / 100);
+    public BigDecimal getPrezzoConIva() {
+        return price.add(price.multiply(iva));
     }
 
 
     public String getNomeEsteso() {
         return getCodice() + "-" + name;
+    }
+
+    @Override
+    public String toString() {
+        return "Codice: " + getCodice() + ", Nome: " + name + ", Descrizione: " + description + ", Prezzo: " + price + "€, Prezzo con IVA: " + getPrezzoConIva() + "€";
     }
 }
